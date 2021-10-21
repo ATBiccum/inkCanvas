@@ -23,6 +23,10 @@ namespace inkCanvas
     /// </summary>
     public partial class MainWindow : Window
     {
+        SolidColorBrush solidcolorbrush = new SolidColorBrush();
+
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -64,22 +68,33 @@ namespace inkCanvas
 
         private void rbuttRed_Checked(object sender, RoutedEventArgs e)
         {
-
+            updatePen(); 
+            solidcolorbrush.Color = Colors.Red;
         }
 
         private void rbuttGreen_Checked(object sender, RoutedEventArgs e)
         {
-
+            updatePen();
+            solidcolorbrush.Color = Colors.Green;
         }
 
         private void rbuttBlue_Checked(object sender, RoutedEventArgs e)
         {
-
+            updatePen();
+            solidcolorbrush.Color = Colors.Blue;
         }
 
         private void rbuttBlack_Checked(object sender, RoutedEventArgs e)
         {
-
+            updatePen();
+            solidcolorbrush.Color = Colors.Black;
+        }
+        private void updatePen()
+        {
+            //if (rbuttBlack.IsChecked == true)
+            //{
+            //    solidcolorbrush.Color = Colors.Black;
+            //}
         }
     }
 }
