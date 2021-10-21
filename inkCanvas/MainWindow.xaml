@@ -8,14 +8,14 @@
         Title="MainWindow" Height="400" Width="400">
     <StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Button x:Name="buttSave" Margin="10,10">Save</Button>
-            <Button x:Name="buttOpen" Margin="10,10">Open</Button>
-            <Button x:Name="buttClear" Margin="10,10">Clear</Button>
+            <Button x:Name="buttSave" Margin="10,10" Click="buttSave_Click">Save</Button>
+            <Button x:Name="buttOpen" Margin="10,10" Click="buttOpen_Click">Open</Button>
+            <Button x:Name="buttClear" Margin="10,10" Click="buttClear_Click">Clear</Button>
 
-            <RadioButton x:Name="rbuttRed" Margin="8,10">Red</RadioButton>
-            <RadioButton x:Name="rbuttGreen" Margin="8,10">Green</RadioButton>
-            <RadioButton x:Name="rbuttBlue" Margin="8,10">Blue</RadioButton>
-            <RadioButton x:Name="rbuttBlack" Margin="8,10">Black</RadioButton>
+            <RadioButton x:Name="rbuttRed" Margin="8,10" Checked="rbuttRed_Checked">Red</RadioButton>
+            <RadioButton x:Name="rbuttGreen" Margin="8,10" Checked="rbuttGreen_Checked">Green</RadioButton>
+            <RadioButton x:Name="rbuttBlue" Margin="8,10" Checked="rbuttBlue_Checked">Blue</RadioButton>
+            <RadioButton x:Name="rbuttBlack" Margin="8,10" Checked="rbuttBlack_Checked">Black</RadioButton>
         </StackPanel>    
         <InkCanvas x:Name="theInkCanvas">
         

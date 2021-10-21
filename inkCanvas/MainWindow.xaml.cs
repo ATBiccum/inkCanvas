@@ -24,5 +24,10 @@ namespace inkCanvas
         {
             InitializeComponent();
         }
+
+        private void buttSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
