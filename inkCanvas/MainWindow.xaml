@@ -15,7 +15,7 @@
             <RadioButton x:Name="rbuttRed" Margin="8,10" Checked="rbuttRed_Checked">Red</RadioButton>
             <RadioButton x:Name="rbuttGreen" Margin="8,10" Checked="rbuttGreen_Checked">Green</RadioButton>
             <RadioButton x:Name="rbuttBlue" Margin="8,10" Checked="rbuttBlue_Checked">Blue</RadioButton>
-            <RadioButton x:Name="rbuttBlack" Margin="8,10" Checked="rbuttBlack_Checked">Black</RadioButton>
+            <RadioButton x:Name="rbuttBlack" Margin="8,10" IsChecked="True" Checked="rbuttBlack_Checked">Black</RadioButton>
         </StackPanel>    
         <InkCanvas x:Name="theInkCanvas">
         

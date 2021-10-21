@@ -24,12 +24,19 @@ namespace inkCanvas
     public partial class MainWindow : Window
     {
         SolidColorBrush solidcolorbrush = new SolidColorBrush();
-
+        DrawingAttributes inkDrawingAttributes = new DrawingAttributes();
 
 
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            theInkCanvas.DefaultDrawingAttributes.Color = Colors.Black;
+            rbuttBlack.IsChecked = true;
         }
 
         private void buttSave_Click(object sender, RoutedEventArgs e)
@@ -91,6 +98,9 @@ namespace inkCanvas
         }
         private void updatePen()
         {
+            inkDrawingAttributes = new DrawingAttributes();
+            inkDrawingAttributes.Color = solidcolorbrush.Color;
+            theInkCanvas.DefaultDrawingAttributes = inkDrawingAttributes;
             //if (rbuttBlack.IsChecked == true)
             //{
             //    solidcolorbrush.Color = Colors.Black;
