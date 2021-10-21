@@ -1,0 +1,25 @@
+﻿<Window x:Class="inkCanvas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:inkCanvas"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="400">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="buttSave" Margin="10,10">Save</Button>
+            <Button x:Name="buttOpen" Margin="10,10">Open</Button>
+            <Button x:Name="buttClear" Margin="10,10">Clear</Button>
+
+            <RadioButton x:Name="rbuttRed" Margin="8,10">Red</RadioButton>
+            <RadioButton x:Name="rbuttGreen" Margin="8,10">Green</RadioButton>
+            <RadioButton x:Name="rbuttBlue" Margin="8,10">Blue</RadioButton>
+            <RadioButton x:Name="rbuttBlack" Margin="8,10">Black</RadioButton>
+        </StackPanel>    
+        <InkCanvas x:Name="theInkCanvas">
+        
+        </InkCanvas>
+    </StackPanel>
+
+</Window>
