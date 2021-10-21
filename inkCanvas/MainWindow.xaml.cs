@@ -61,5 +61,25 @@ namespace inkCanvas
         {
 
         }
+
+        private void rbuttRed_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rbuttGreen_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rbuttBlue_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rbuttBlack_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
