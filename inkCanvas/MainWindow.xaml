@@ -15,11 +15,15 @@
             <RadioButton x:Name="rbuttRed" Margin="8,10" Checked="rbuttRed_Checked">Red</RadioButton>
             <RadioButton x:Name="rbuttGreen" Margin="8,10" Checked="rbuttGreen_Checked">Green</RadioButton>
             <RadioButton x:Name="rbuttBlue" Margin="8,10" Checked="rbuttBlue_Checked">Blue</RadioButton>
-            <RadioButton x:Name="rbuttBlack" Margin="8,10" IsChecked="True" Checked="rbuttBlack_Checked">Black</RadioButton>
-        </StackPanel>    
-        <InkCanvas x:Name="theInkCanvas">
-        
-        </InkCanvas>
+            <RadioButton x:Name="rbuttBlack" Margin="8,10" Checked="rbuttBlack_Checked">Black</RadioButton>
+        </StackPanel>
+        <InkCanvas x:Name="theInkCanvas"/>
+        <Button x:Name="buttColorSelect" Width="20" Height="20" Margin="10,10,10,10" Background="Black"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label x:Name="lblRed" Content="Red" Margin="10,10,10,10" Width="70"/>
+            <ScrollBar x:Name="scrollBarRed" Orientation="Horizontal"/>
+        </StackPanel>
+
     </StackPanel>
 
 </Window>

@@ -75,26 +75,30 @@ namespace inkCanvas
 
         private void rbuttRed_Checked(object sender, RoutedEventArgs e)
         {
-            updatePen(); 
+            
             solidcolorbrush.Color = Colors.Red;
+            updatePen(); 
         }
 
         private void rbuttGreen_Checked(object sender, RoutedEventArgs e)
         {
-            updatePen();
+            
             solidcolorbrush.Color = Colors.Green;
+            updatePen();
         }
 
         private void rbuttBlue_Checked(object sender, RoutedEventArgs e)
         {
-            updatePen();
+            
             solidcolorbrush.Color = Colors.Blue;
+            updatePen();
         }
 
         private void rbuttBlack_Checked(object sender, RoutedEventArgs e)
         {
-            updatePen();
+            
             solidcolorbrush.Color = Colors.Black;
+            updatePen();
         }
         private void updatePen()
         {
