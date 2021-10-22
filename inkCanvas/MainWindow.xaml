@@ -1,85 +1,78 @@
-﻿<Window x:Class="inkCanvas.MainWindow"
+﻿<Window x:Class="theInkCanvas.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:inkCanvas"
+        xmlns:local="clr-namespace:theInkCanvas"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="800">
-    <StackPanel>
-        
-        <StackPanel Orientation="Horizontal">
-            <Button x:Name="buttSave" Margin="10,10" Click="buttSave_Click">Save</Button>
+        Title="MainWindow" Height="1080" Width="1920">
+    
+    <Grid ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="topBar" Height="40"/>
+            <RowDefinition x:Name="canvasRow" Height="840"/>
+            <RowDefinition x:Name="buttonRow" Height="30"/>
+            <RowDefinition x:Name="redRow" Height="30"/>
+            <RowDefinition x:Name="greenRow" Height="30"/>
+            <RowDefinition x:Name="blueRow" Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1920"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center">
+            <Button x:Name="buttSave" Margin="10,10" Click="buttSave_Click" HorizontalAlignment="Center">Save</Button>
             <Button x:Name="buttOpen" Margin="10,10" Click="buttOpen_Click">Open</Button>
             <Button x:Name="buttClear" Margin="10,10" Click="buttClear_Click">Clear</Button>
-
-            <RadioButton x:Name="rbuttRed" Margin="8,10" Checked="rbuttRed_Checked">Red</RadioButton>
-            <RadioButton x:Name="rbuttGreen" Margin="8,10" Checked="rbuttGreen_Checked">Green</RadioButton>
-            <RadioButton x:Name="rbuttBlue" Margin="8,10" Checked="rbuttBlue_Checked">Blue</RadioButton>
-            <RadioButton x:Name="rbuttBlack" Margin="8,10" Checked="rbuttBlack_Checked">Black</RadioButton>
         </StackPanel>
-        
-        <InkCanvas x:Name="theInkCanvas"/>
 
+        <InkCanvas x:Name="theInkCanvas" Grid.Row="1" Grid.Column="0"/>
+        <Button x:Name="buttColorSelect" Grid.Row="2" Grid.Column="0"
+                Width="20" 
+                Height="20" 
+                Background="Black"/>
 
-        <Grid ShowGridLines="False" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,375">
-            <Grid.RowDefinitions>
-                <RowDefinition x:Name="buttonRow" Height="30"/>
-                <RowDefinition x:Name="redRow" Height="30"/>
-                <RowDefinition x:Name="greenRow" Height="30"/>
-                <RowDefinition x:Name="blueRow" Height="30"/>
-            </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0">
+            <Label x:Name="lblRed" 
+                Content="Red" 
+                Width="70"/>
+            <ScrollBar x:Name="scrollBarRed" 
+                Orientation="Horizontal" 
+                Maximum="255" 
+                Width="245" 
+                ValueChanged="scrollBar_ValueChanged"/>
+            <TextBox x:Name="txtRed" 
+                Text="0" 
+                Width="50"/>
+        </StackPanel>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="buttColorSelect" Grid.Row="0" Grid.Column="0"
-                    Width="20" 
-                    Height="20" 
-                    Background="Black"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="4">
+            <Label x:Name="lblGreen" 
+                Content="Green" 
+                Width="70"/>
+            <ScrollBar x:Name="scrollBarGreen" 
+                Orientation="Horizontal" 
+                Maximum="255" 
+                Width="245" 
+                ValueChanged="scrollBar_ValueChanged"/>
+            <TextBox x:Name="txtGreen" 
+                Text="0" 
+                Width="50"/>
+        </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0">
-                <Label x:Name="lblRed" 
-                   Content="Red" 
-                   Width="70"/>
-                <ScrollBar x:Name="scrollBarRed" 
-                    Orientation="Horizontal" 
-                    Maximum="255" 
-                    Width="245" 
-                    ValueChanged="scrollBar_ValueChanged"/>
-                <TextBox x:Name="txtRed" 
-                    Text="0" 
-                    Width="50"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
-                <Label x:Name="lblGreen" 
-                   Content="Green" 
-                   Width="70"/>
-                <ScrollBar x:Name="scrollBarGreen" 
-                    Orientation="Horizontal" 
-                    Maximum="255" 
-                    Width="245" 
-                    ValueChanged="scrollBar_ValueChanged"/>
-                <TextBox x:Name="txtGreen" 
-                    Text="0" 
-                    Width="50"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3">
-                <Label x:Name="lblBlue" 
-                   Content="Blue"  
-                   Width="70"/>
-                <ScrollBar x:Name="scrollBarBlue" 
-                    Orientation="Horizontal" 
-                    Maximum="255" 
-                    Width="245" 
-                    ValueChanged="scrollBar_ValueChanged"/>
-                <TextBox x:Name="txtBlue"  
-                    Text="0" 
-                    Width="50"/>
-            </StackPanel>
-        </Grid>
-    </StackPanel>
-    
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="5">
+            <Label x:Name="lblBlue" 
+                Content="Blue"  
+                Width="70"/>
+            <ScrollBar x:Name="scrollBarBlue" 
+                Orientation="Horizontal" 
+                Maximum="255" 
+                Width="245" 
+                ValueChanged="scrollBar_ValueChanged"/>
+            <TextBox x:Name="txtBlue"  
+                Text="0" 
+                Width="50"/>
+        </StackPanel>
+    </Grid>
 </Window>

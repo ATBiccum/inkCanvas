@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace inkCanvas
+namespace theInkCanvas
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -36,7 +36,6 @@ namespace inkCanvas
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             theInkCanvas.DefaultDrawingAttributes.Color = Colors.Black;
-            rbuttBlack.IsChecked = true;
         }
 
         private void buttSave_Click(object sender, RoutedEventArgs e)
@@ -70,50 +69,26 @@ namespace inkCanvas
 
         private void buttClear_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void rbuttRed_Checked(object sender, RoutedEventArgs e)
-        {
-            
-            solidcolorbrush.Color = Colors.Red;
-            updatePen(); 
-        }
-
-        private void rbuttGreen_Checked(object sender, RoutedEventArgs e)
-        {
-            
-            solidcolorbrush.Color = Colors.Green;
-            updatePen();
-        }
-
-        private void rbuttBlue_Checked(object sender, RoutedEventArgs e)
-        {
-            
-            solidcolorbrush.Color = Colors.Blue;
-            updatePen();
-        }
-
-        private void rbuttBlack_Checked(object sender, RoutedEventArgs e)
-        {
-            
-            solidcolorbrush.Color = Colors.Black;
-            updatePen();
+            this.theInkCanvas.Strokes.Clear();
         }
         private void updatePen()
         {
             inkDrawingAttributes = new DrawingAttributes();
+            byte red = Convert.ToByte(scrollBarRed.Value);
+            byte green = Convert.ToByte(scrollBarGreen.Value);
+            byte blue = Convert.ToByte(scrollBarBlue.Value);
+            txtRed.Text = Convert.ToString(red);
+            txtGreen.Text = Convert.ToString(green);
+            txtBlue.Text = Convert.ToString(blue);
+            solidcolorbrush.Color = Color.FromArgb(255, red, green, blue);
+            buttColorSelect.Background = solidcolorbrush;
             inkDrawingAttributes.Color = solidcolorbrush.Color;
             theInkCanvas.DefaultDrawingAttributes = inkDrawingAttributes;
-            //if (rbuttBlack.IsChecked == true)
-            //{
-            //    solidcolorbrush.Color = Colors.Black;
-            //}
         }
 
         private void scrollBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
+            updatePen();
         }
     }
 }
