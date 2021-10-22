@@ -110,5 +110,10 @@ namespace inkCanvas
             //    solidcolorbrush.Color = Colors.Black;
             //}
         }
+
+        private void scrollBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
     }
 }

@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:inkCanvas"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="400">
+        Title="MainWindow" Height="800" Width="800">
     <StackPanel>
+        
         <StackPanel Orientation="Horizontal">
             <Button x:Name="buttSave" Margin="10,10" Click="buttSave_Click">Save</Button>
             <Button x:Name="buttOpen" Margin="10,10" Click="buttOpen_Click">Open</Button>
@@ -17,13 +18,68 @@
             <RadioButton x:Name="rbuttBlue" Margin="8,10" Checked="rbuttBlue_Checked">Blue</RadioButton>
             <RadioButton x:Name="rbuttBlack" Margin="8,10" Checked="rbuttBlack_Checked">Black</RadioButton>
         </StackPanel>
+        
         <InkCanvas x:Name="theInkCanvas"/>
-        <Button x:Name="buttColorSelect" Width="20" Height="20" Margin="10,10,10,10" Background="Black"/>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Label x:Name="lblRed" Content="Red" Margin="10,10,10,10" Width="70"/>
-            <ScrollBar x:Name="scrollBarRed" Orientation="Horizontal"/>
-        </StackPanel>
 
+
+        <Grid ShowGridLines="False" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,375">
+            <Grid.RowDefinitions>
+                <RowDefinition x:Name="buttonRow" Height="30"/>
+                <RowDefinition x:Name="redRow" Height="30"/>
+                <RowDefinition x:Name="greenRow" Height="30"/>
+                <RowDefinition x:Name="blueRow" Height="30"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="buttColorSelect" Grid.Row="0" Grid.Column="0"
+                    Width="20" 
+                    Height="20" 
+                    Background="Black"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0">
+                <Label x:Name="lblRed" 
+                   Content="Red" 
+                   Width="70"/>
+                <ScrollBar x:Name="scrollBarRed" 
+                    Orientation="Horizontal" 
+                    Maximum="255" 
+                    Width="245" 
+                    ValueChanged="scrollBar_ValueChanged"/>
+                <TextBox x:Name="txtRed" 
+                    Text="0" 
+                    Width="50"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
+                <Label x:Name="lblGreen" 
+                   Content="Green" 
+                   Width="70"/>
+                <ScrollBar x:Name="scrollBarGreen" 
+                    Orientation="Horizontal" 
+                    Maximum="255" 
+                    Width="245" 
+                    ValueChanged="scrollBar_ValueChanged"/>
+                <TextBox x:Name="txtGreen" 
+                    Text="0" 
+                    Width="50"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3">
+                <Label x:Name="lblBlue" 
+                   Content="Blue"  
+                   Width="70"/>
+                <ScrollBar x:Name="scrollBarBlue" 
+                    Orientation="Horizontal" 
+                    Maximum="255" 
+                    Width="245" 
+                    ValueChanged="scrollBar_ValueChanged"/>
+                <TextBox x:Name="txtBlue"  
+                    Text="0" 
+                    Width="50"/>
+            </StackPanel>
+        </Grid>
     </StackPanel>
-
+    
 </Window>
