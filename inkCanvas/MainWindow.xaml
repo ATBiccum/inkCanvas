@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:theInkCanvas"
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1920">
-    
+
     <Grid ShowGridLines="False">
         <Grid.RowDefinitions>
             <RowDefinition x:Name="topBar" Height="40"/>
@@ -18,16 +18,18 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1920"/>
+            <ColumnDefinition Width="640"/>
+            <ColumnDefinition Width="175"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center">
             <Button x:Name="buttSave" Margin="10,10" Click="buttSave_Click" HorizontalAlignment="Center">Save</Button>
             <Button x:Name="buttOpen" Margin="10,10" Click="buttOpen_Click">Open</Button>
             <Button x:Name="buttClear" Margin="10,10" Click="buttClear_Click">Clear</Button>
         </StackPanel>
 
-        <InkCanvas x:Name="theInkCanvas" Grid.Row="1" Grid.Column="0"/>
+        <InkCanvas x:Name="theInkCanvas" Grid.Row="1" Grid.ColumnSpan="4"/>
         <Button x:Name="buttColorSelect" Grid.Row="2" Grid.Column="0"
                 Width="20" 
                 Height="20" 
@@ -35,6 +37,7 @@
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0">
             <Label x:Name="lblRed" 
+                FontSize="16"
                 Content="Red" 
                 Width="70"/>
             <ScrollBar x:Name="scrollBarRed" 
@@ -48,7 +51,8 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="4">
-            <Label x:Name="lblGreen" 
+            <Label x:Name="lblGreen"
+                FontSize="16"
                 Content="Green" 
                 Width="70"/>
             <ScrollBar x:Name="scrollBarGreen" 
@@ -63,6 +67,7 @@
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="5">
             <Label x:Name="lblBlue" 
+                FontSize="16"
                 Content="Blue"  
                 Width="70"/>
             <ScrollBar x:Name="scrollBarBlue" 
@@ -74,5 +79,25 @@
                 Text="0" 
                 Width="50"/>
         </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="3">
+            <Label x:Name="sizeAdjuster" 
+                FontSize="16"
+                Content="Size"  
+                Width="70"/>
+            <ScrollBar x:Name="scrollBarSize" 
+                Orientation="Horizontal" 
+                Maximum="255" 
+                Width="245" 
+                ValueChanged="scrollBar_ValueChanged"/>
+            <TextBox x:Name="scrollSize"  
+                Text="0" 
+                Width="50"/>
+        </StackPanel>
+
+        <RadioButton x:Name="circleBrush" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Checked="circleBrush_Checked">Circle Brush</RadioButton>
+        <RadioButton x:Name="squareBrush" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Checked="squareBrush_Checked">Square Brush</RadioButton>
+        <RadioButton x:Name="ovalBrush" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Checked="ovalBrush_Checked">Oval Brush</RadioButton>
+
     </Grid>
 </Window>

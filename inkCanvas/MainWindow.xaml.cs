@@ -25,7 +25,7 @@ namespace theInkCanvas
     {
         SolidColorBrush solidcolorbrush = new SolidColorBrush();
         DrawingAttributes inkDrawingAttributes = new DrawingAttributes();
-
+        
 
         public MainWindow()
         {
@@ -36,6 +36,7 @@ namespace theInkCanvas
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             theInkCanvas.DefaultDrawingAttributes.Color = Colors.Black;
+            circleBrush.IsChecked = true;
         }
 
         private void buttSave_Click(object sender, RoutedEventArgs e)
@@ -83,12 +84,33 @@ namespace theInkCanvas
             solidcolorbrush.Color = Color.FromArgb(255, red, green, blue);
             buttColorSelect.Background = solidcolorbrush;
             inkDrawingAttributes.Color = solidcolorbrush.Color;
+
+            inkDrawingAttributes.Width = scrollBarSize.Value;
+            inkDrawingAttributes.Height = scrollBarSize.Value;
+
             theInkCanvas.DefaultDrawingAttributes = inkDrawingAttributes;
         }
 
         private void scrollBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             updatePen();
+        }
+
+        private void circleBrush_Checked(object sender, RoutedEventArgs e)
+        {
+            inkDrawingAttributes.StylusTip = StylusTip.Ellipse;
+            
+        }
+
+        private void squareBrush_Checked(object sender, RoutedEventArgs e)
+        {
+            inkDrawingAttributes.StylusTip = StylusTip.Rectangle;
+            
+        }
+
+        private void ovalBrush_Checked(object sender, RoutedEventArgs e)
+        {
+            inkDrawingAttributes.StylusTip = StylusTip.Ellipse;
         }
     }
 }
