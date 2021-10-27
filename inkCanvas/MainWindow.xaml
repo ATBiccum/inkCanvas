@@ -79,19 +79,21 @@
                 Text="0" 
                 Width="50"/>
         </StackPanel>
-        
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="3">
-            <Label x:Name="sizeAdjuster" 
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="2">
+            <Label x:Name="lblSize" 
                 FontSize="16"
                 Content="Size"  
                 Width="70"/>
             <ScrollBar x:Name="scrollBarSize" 
                 Orientation="Horizontal" 
                 Maximum="255" 
-                Width="245" 
+                Minimum="1"
+                Value="1"
+                Width="245"
                 ValueChanged="scrollBar_ValueChanged"/>
-            <TextBox x:Name="scrollSize"  
-                Text="0" 
+            <TextBox x:Name="txtSize"  
+                Text="1" 
                 Width="50"/>
         </StackPanel>
 

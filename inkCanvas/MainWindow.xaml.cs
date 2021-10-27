@@ -25,7 +25,7 @@ namespace theInkCanvas
     {
         SolidColorBrush solidcolorbrush = new SolidColorBrush();
         DrawingAttributes inkDrawingAttributes = new DrawingAttributes();
-        
+        int stylusStyleFlag = 0;
 
         public MainWindow()
         {
@@ -74,19 +74,39 @@ namespace theInkCanvas
         }
         private void updatePen()
         {
-            inkDrawingAttributes = new DrawingAttributes();
-            byte red = Convert.ToByte(scrollBarRed.Value);
+            inkDrawingAttributes = new DrawingAttributes();                     //Create new instance of drawing attributes
+
+            byte red = Convert.ToByte(scrollBarRed.Value);                      //Convert all scroll bar values into bytes
             byte green = Convert.ToByte(scrollBarGreen.Value);
             byte blue = Convert.ToByte(scrollBarBlue.Value);
-            txtRed.Text = Convert.ToString(red);
+            byte value = Convert.ToByte(scrollBarSize.Value);
+
+            txtRed.Text = Convert.ToString(red);                                //Set the text on the scroll bars to the byte variables
             txtGreen.Text = Convert.ToString(green);
             txtBlue.Text = Convert.ToString(blue);
+            //txtSize.Text = Convert.ToString(value);
+
             solidcolorbrush.Color = Color.FromArgb(255, red, green, blue);
+
             buttColorSelect.Background = solidcolorbrush;
             inkDrawingAttributes.Color = solidcolorbrush.Color;
 
-            inkDrawingAttributes.Width = scrollBarSize.Value;
-            inkDrawingAttributes.Height = scrollBarSize.Value;
+            inkDrawingAttributes.Width = value;
+            inkDrawingAttributes.Height = value;
+
+            if (stylusStyleFlag == 0)
+            {
+                inkDrawingAttributes.StylusTip = StylusTip.Ellipse;
+            }
+            if (stylusStyleFlag == 1)
+            {
+                inkDrawingAttributes.StylusTip = StylusTip.Rectangle;
+            }
+           if (stylusStyleFlag == 2)
+            {
+                inkDrawingAttributes.StylusTip = StylusTip.Ellipse;
+                inkDrawingAttributes.Width = scrollBarSize.Value * 4;
+            }
 
             theInkCanvas.DefaultDrawingAttributes = inkDrawingAttributes;
         }
@@ -98,19 +118,21 @@ namespace theInkCanvas
 
         private void circleBrush_Checked(object sender, RoutedEventArgs e)
         {
-            inkDrawingAttributes.StylusTip = StylusTip.Ellipse;
+            stylusStyleFlag = 0;
+            updatePen();
             
         }
 
         private void squareBrush_Checked(object sender, RoutedEventArgs e)
         {
-            inkDrawingAttributes.StylusTip = StylusTip.Rectangle;
-            
+            stylusStyleFlag = 1;
+            updatePen();
         }
 
         private void ovalBrush_Checked(object sender, RoutedEventArgs e)
         {
-            inkDrawingAttributes.StylusTip = StylusTip.Ellipse;
+            stylusStyleFlag = 2;
+            updatePen();
         }
     }
 }
