@@ -30,13 +30,13 @@ namespace theInkCanvas
         public MainWindow()
         {
             InitializeComponent();
-            Loaded += MainWindow_Loaded;
+            Loaded += MainWindow_Loaded;                                            //Run MainWindow_Loaded before program loads
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            theInkCanvas.DefaultDrawingAttributes.Color = Colors.Black;
-            circleBrush.IsChecked = true;
+            theInkCanvas.DefaultDrawingAttributes.Color = Colors.Black;             //Set default color to black
+            circleBrush.IsChecked = true;                                           //Set default brush to circle
         }
 
         private void buttSave_Click(object sender, RoutedEventArgs e)
@@ -56,6 +56,7 @@ namespace theInkCanvas
 
         private void buttOpen_Click(object sender, RoutedEventArgs e)
         {
+            //Code from: https://docs.microsoft.com/en-us/dotnet/desktop/wpf/advanced/storing-ink?view=netframeworkdesktop-4.8
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Filter = "isf files (*.isf)|*.isf";
 
@@ -70,7 +71,7 @@ namespace theInkCanvas
 
         private void buttClear_Click(object sender, RoutedEventArgs e)
         {
-            this.theInkCanvas.Strokes.Clear();
+            this.theInkCanvas.Strokes.Clear();                                  //Clear the ink canvas of all strokes if clear button pushed
         }
         private void updatePen()
         {
@@ -85,51 +86,51 @@ namespace theInkCanvas
             txtGreen.Text = Convert.ToString(green);
             txtBlue.Text = Convert.ToString(blue);
 
-            solidcolorbrush.Color = Color.FromArgb(255, red, green, blue);
+            solidcolorbrush.Color = Color.FromArgb(255, red, green, blue);      //Save the colour to 3 bytes r g b
 
-            buttColorSelect.Background = solidcolorbrush;
-            inkDrawingAttributes.Color = solidcolorbrush.Color;
+            buttColorSelect.Background = solidcolorbrush;                       //Set the color taster to selected color
+            inkDrawingAttributes.Color = solidcolorbrush.Color;                 //Set the stylus color to the rgb color
 
-            inkDrawingAttributes.Width = value;
-            inkDrawingAttributes.Height = value;
+            inkDrawingAttributes.Width = value;                                 //Set the width of the stylus to the size value
+            inkDrawingAttributes.Height = value;                                //Set the height of the stylus to the size value
 
-            if (stylusStyleFlag == 0)
+            if (stylusStyleFlag == 0)                                           //If circle is checked will set flag to 0
             {
-                inkDrawingAttributes.StylusTip = StylusTip.Ellipse;
+                inkDrawingAttributes.StylusTip = StylusTip.Ellipse;             //Sets the stylus to a circle
             }
-            if (stylusStyleFlag == 1)
+            if (stylusStyleFlag == 1)                                           //If rectangle is checked will set flag to 1
             {
-                inkDrawingAttributes.StylusTip = StylusTip.Rectangle;
+                inkDrawingAttributes.StylusTip = StylusTip.Rectangle;           //Sets the stylus to a rectangle
             }
-           if (stylusStyleFlag == 2)
+           if (stylusStyleFlag == 2)                                            //If the oval is checked will set flag to 2
             {
-                inkDrawingAttributes.StylusTip = StylusTip.Ellipse;
+                inkDrawingAttributes.StylusTip = StylusTip.Ellipse;             //Change to a circle with width x 4
                 inkDrawingAttributes.Width = scrollBarSize.Value * 4;
             }
-            theInkCanvas.DefaultDrawingAttributes = inkDrawingAttributes;
+            theInkCanvas.DefaultDrawingAttributes = inkDrawingAttributes;       //Set all attributes to the stylus we just created
         }
 
         private void scrollBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            updatePen();
+            updatePen();    //Update pen function if a scroll bar is changed
         }
 
         private void circleBrush_Checked(object sender, RoutedEventArgs e)
         {
-            stylusStyleFlag = 0;
+            stylusStyleFlag = 0;    //Set flag to 0 and update pen if circle is checked
             updatePen();
             
         }
 
         private void squareBrush_Checked(object sender, RoutedEventArgs e)
         {
-            stylusStyleFlag = 1;
+            stylusStyleFlag = 1;    //Set flag to 1 and update pen if rectangle is checked
             updatePen();
         }
 
         private void ovalBrush_Checked(object sender, RoutedEventArgs e)
         {
-            stylusStyleFlag = 2;
+            stylusStyleFlag = 2;    //Set flag to 2 and update pen if oval is checked
             updatePen();
         }
     }
