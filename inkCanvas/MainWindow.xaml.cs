@@ -84,7 +84,6 @@ namespace theInkCanvas
             txtRed.Text = Convert.ToString(red);                                //Set the text on the scroll bars to the byte variables
             txtGreen.Text = Convert.ToString(green);
             txtBlue.Text = Convert.ToString(blue);
-            //txtSize.Text = Convert.ToString(value);
 
             solidcolorbrush.Color = Color.FromArgb(255, red, green, blue);
 
@@ -107,7 +106,6 @@ namespace theInkCanvas
                 inkDrawingAttributes.StylusTip = StylusTip.Ellipse;
                 inkDrawingAttributes.Width = scrollBarSize.Value * 4;
             }
-
             theInkCanvas.DefaultDrawingAttributes = inkDrawingAttributes;
         }
 

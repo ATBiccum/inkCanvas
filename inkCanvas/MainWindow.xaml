@@ -19,8 +19,8 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="640"/>
-            <ColumnDefinition Width="175"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="640"/>
+            <ColumnDefinition Width="640"/>
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center">
@@ -31,11 +31,12 @@
 
         <InkCanvas x:Name="theInkCanvas" Grid.Row="1" Grid.ColumnSpan="4"/>
         <Button x:Name="buttColorSelect" Grid.Row="2" Grid.Column="0"
+                Margin="275,0,0,0"
                 Width="20" 
                 Height="20" 
                 Background="Black"/>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0">
             <Label x:Name="lblRed" 
                 FontSize="16"
                 Content="Red" 
@@ -50,7 +51,7 @@
                 Width="50"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="4">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="4">
             <Label x:Name="lblGreen"
                 FontSize="16"
                 Content="Green" 
@@ -65,7 +66,7 @@
                 Width="50"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="5">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="5">
             <Label x:Name="lblBlue" 
                 FontSize="16"
                 Content="Blue"  
@@ -80,7 +81,7 @@
                 Width="50"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="2">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="2">
             <Label x:Name="lblSize" 
                 FontSize="16"
                 Content="Size"  
@@ -92,14 +93,11 @@
                 Value="1"
                 Width="245"
                 ValueChanged="scrollBar_ValueChanged"/>
-            <TextBox x:Name="txtSize"  
-                Text="1" 
-                Width="50"/>
         </StackPanel>
 
-        <RadioButton x:Name="circleBrush" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Checked="circleBrush_Checked">Circle Brush</RadioButton>
-        <RadioButton x:Name="squareBrush" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Checked="squareBrush_Checked">Square Brush</RadioButton>
-        <RadioButton x:Name="ovalBrush" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Checked="ovalBrush_Checked">Oval Brush</RadioButton>
+        <RadioButton x:Name="circleBrush" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Checked="circleBrush_Checked">Circle Brush</RadioButton>
+        <RadioButton x:Name="squareBrush" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Checked="squareBrush_Checked">Square Brush</RadioButton>
+        <RadioButton x:Name="ovalBrush" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Checked="ovalBrush_Checked">Oval Brush</RadioButton>
 
     </Grid>
 </Window>
