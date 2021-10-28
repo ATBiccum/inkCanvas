@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:theInkCanvas"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920">
+        Title="Ink Canvas" Height="1080" Width="1920">
 
     <Grid ShowGridLines="False">
         <Grid.RowDefinitions>
@@ -89,10 +89,11 @@
             <ScrollBar x:Name="scrollBarSize" 
                 Orientation="Horizontal" 
                 Maximum="255" 
-                Minimum="1"
-                Value="1"
                 Width="245"
                 ValueChanged="scrollBar_ValueChanged"/>
+            <TextBox x:Name="txtSize"  
+                Text="0" 
+                Width="50"/>
         </StackPanel>
 
         <RadioButton x:Name="circleBrush" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Checked="circleBrush_Checked">Circle Brush</RadioButton>

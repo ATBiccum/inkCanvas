@@ -1,4 +1,18 @@
-﻿using Microsoft.Win32;
+﻿/*inkCanvas Project
+ * 
+ * This project is for a whiteboard that includes various features.
+ * You can draw with a pen in the window with various sizes and colours by using the sliders
+ * You can change the shape of the pen by using the three buttons
+ * And you can save, open and clear the space with the buttons on the top
+ * 
+ * 
+ * Tony Biccum
+ * Project created for ECET 230 
+ * October 28th, 2021
+ * Camosun College
+ */
+
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,9 +32,6 @@ using System.Windows.Shapes;
 
 namespace theInkCanvas
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         SolidColorBrush solidcolorbrush = new SolidColorBrush();
@@ -36,7 +47,9 @@ namespace theInkCanvas
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             theInkCanvas.DefaultDrawingAttributes.Color = Colors.Black;             //Set default color to black
+            scrollBarSize.Value = 1;
             circleBrush.IsChecked = true;                                           //Set default brush to circle
+            
         }
 
         private void buttSave_Click(object sender, RoutedEventArgs e)
@@ -77,11 +90,12 @@ namespace theInkCanvas
         {
             inkDrawingAttributes = new DrawingAttributes();                     //Create new instance of drawing attributes
 
+            double value = Convert.ToDouble(scrollBarSize.Value);
             byte red = Convert.ToByte(scrollBarRed.Value);                      //Convert all scroll bar values into bytes
             byte green = Convert.ToByte(scrollBarGreen.Value);
             byte blue = Convert.ToByte(scrollBarBlue.Value);
-            byte value = Convert.ToByte(scrollBarSize.Value);
 
+            txtSize.Text = value.ToString("f1");
             txtRed.Text = Convert.ToString(red);                                //Set the text on the scroll bars to the byte variables
             txtGreen.Text = Convert.ToString(green);
             txtBlue.Text = Convert.ToString(blue);
@@ -93,16 +107,16 @@ namespace theInkCanvas
 
             inkDrawingAttributes.Width = value;                                 //Set the width of the stylus to the size value
             inkDrawingAttributes.Height = value;                                //Set the height of the stylus to the size value
-
+           
             if (stylusStyleFlag == 0)                                           //If circle is checked will set flag to 0
             {
                 inkDrawingAttributes.StylusTip = StylusTip.Ellipse;             //Sets the stylus to a circle
             }
-            if (stylusStyleFlag == 1)                                           //If rectangle is checked will set flag to 1
+            else if (stylusStyleFlag == 1)                                           //If rectangle is checked will set flag to 1
             {
                 inkDrawingAttributes.StylusTip = StylusTip.Rectangle;           //Sets the stylus to a rectangle
             }
-           if (stylusStyleFlag == 2)                                            //If the oval is checked will set flag to 2
+           else if (stylusStyleFlag == 2)                                            //If the oval is checked will set flag to 2
             {
                 inkDrawingAttributes.StylusTip = StylusTip.Ellipse;             //Change to a circle with width x 4
                 inkDrawingAttributes.Width = scrollBarSize.Value * 4;
@@ -113,6 +127,7 @@ namespace theInkCanvas
         private void scrollBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             updatePen();    //Update pen function if a scroll bar is changed
+            
         }
 
         private void circleBrush_Checked(object sender, RoutedEventArgs e)
